@@ -78,6 +78,32 @@ When domain complexity, integrations, vendor dependencies, testability, security
 
 See [Architecture Patterns](patterns/architecture/README.md).
 
+## Agentic Reference Architectures
+
+DevPattern includes reusable [Agentic Reference Architectures](agentic-reference-architectures/README.md) for:
+
+- Azure
+- GCP
+- AWS
+- Microsoft Fabric Data Agent
+
+Each platform is defined progressively for:
+
+```text
+FAST DEMO
+→ prove agentic behavior
+
+MVP
+→ prove repeatability, integration and observability
+
+PRODUCT
+→ prove security, resilience, governance and scale
+```
+
+Each reference includes Mermaid component diagrams and reusable variants such as single-agent, RAG, multi-agent, event-driven, long-running and data-agent where applicable.
+
+See the [Agentic Architecture Selection Matrix](agentic-reference-architectures/selection-matrix.md).
+
 ## Component Architecture Profiles
 
 Architecture patterns and Pattern Packs remain vendor-neutral.
