@@ -1,0 +1,35 @@
+cost_profile:
+  priority: high
+  expected_usage: low
+  traffic_pattern: intermittent
+  availability: business_hours
+  data_volume: low
+  growth_uncertainty: high
+
+cost_envelope:
+  target_monthly_usd: 100
+  hard_limit_usd: 200
+
+selection_preferences:
+  prefer_scale_to_zero: true
+  prefer_consumption_pricing: true
+  prefer_managed_services: true
+  avoid_dedicated_clusters: true
+  avoid_unnecessary_ha: true
+
+escalation_triggers:
+  - sustained_traffic
+  - cold_start_affects_slo
+  - concurrency_limit_reached
+  - background_processing_required
+  - stronger_rpo_rto
+  - stronger_isolation_required
+  - data_sensitivity_increased
+  - monthly_cost_inefficient
+  - measured_latency_or_quality_gap
+
+decision:
+  selected_option: lean
+  rationale: ""
+  expected_cost_category: LOW
+  migration_path: ""
