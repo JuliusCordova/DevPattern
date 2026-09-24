@@ -75,7 +75,7 @@ This lets LLM providers, databases, APIs, vector stores, and other technologies 
 
 ## Progressive application
 
-### FAST
+### FAST DEMO
 
 Keep the structure intentionally small.
 
