@@ -1,4 +1,12 @@
-# Pattern Selection — Legal Contract Agent FAST DEMO
+# Pattern Selection — Cross-Industry Legal Contract Intelligence FAST DEMO
+
+## Fixed implementation decisions
+
+- Product: cross-industry demo, not client-specific.
+- Frontend: React.
+- Backend/API: FastAPI.
+- Cloud: GCP.
+- Agent runtime: Google ADK + Vertex AI/Gemini.
 
 ## Selected patterns
 
@@ -7,33 +15,43 @@ Use a Minimum Sufficient Specification and a simple feature slice.
 
 Why:
 - value is not yet validated;
-- documentation and controls must remain proportional to maturity;
-- acceptance evidence is more important than architecture volume.
+- documentation and controls remain proportional to maturity;
+- acceptance evidence matters more than architecture volume.
 
-### 2. Single Agent
-One visible Legal Contract Agent.
+### 2. React -> FastAPI boundary
+React owns presentation and interaction state.
+FastAPI owns server-side API contracts, agent invocation and access to retrieval/model services.
+
+Rules:
+- no model credentials in React;
+- no direct browser-to-Gemini calls;
+- API schemas remain explicit and testable;
+- client-specific behavior is not hardcoded into either layer.
+
+### 3. Single Agent
+One visible Legal Contract Intelligence Agent.
 
 Why:
 - the demo requires one coherent user task;
 - search, clause analysis and comparison can remain capabilities/tools;
-- multi-agent orchestration would add latency, cost and failure modes without proving more business value.
+- multi-agent orchestration adds latency, cost and failure modes without proving more business value.
 
 Evolution trigger:
 - specialist reasoning becomes materially different;
 - tool/action permissions diverge;
 - independent scaling or evaluation is required;
-- orchestration complexity can be demonstrated with evidence.
+- orchestration complexity is justified by evidence.
 
-### 3. RAG
+### 4. RAG
 Retrieve contract evidence before answer generation.
 
 Why:
 - legal answers must be grounded in the supplied corpus;
-- evidence needs to remain inspectable by the user;
+- evidence must remain inspectable;
 - abstention is possible when retrieval returns insufficient support.
 
-### 4. Tool Calling
-Use only two tools:
+### 5. Tool Calling
+Use only two agent tools:
 - `search_contracts`
 - `get_document`
 
@@ -41,8 +59,8 @@ Why:
 - separates model reasoning from deterministic retrieval;
 - keeps the agent contract small and testable.
 
-### 5. Context Engineering
-The model context must be assembled from:
+### 6. Context Engineering
+Assemble model context from:
 - system/agent contract;
 - current user question;
 - retrieved evidence;
@@ -51,8 +69,14 @@ The model context must be assembled from:
 
 Do not place the full corpus into the prompt.
 
-### 6. Governed Agent — minimal FAST DEMO subset
-Apply only the controls that materially affect the demo:
+### 7. Cross-industry core + adapters/configuration
+Core behavior is reusable.
+Client specialization is a future configuration/integration concern.
+
+This avoids client forks and keeps the FAST DEMO portable.
+
+### 8. Governed Agent — minimal FAST DEMO subset
+Apply only controls that materially affect the demo:
 - read-only runtime;
 - bounded tools;
 - source-grounded answers;
@@ -60,8 +84,8 @@ Apply only the controls that materially affect the demo:
 - no hidden external knowledge source;
 - no autonomous legal decision.
 
-### 7. Eval + Observability — minimal subset
-Collect only evidence needed to trust the demo:
+### 9. Eval + Observability — minimal subset
+Collect:
 - golden-set pass/fail;
 - grounding/evidence correctness;
 - unsupported-answer rate;
@@ -69,7 +93,7 @@ Collect only evidence needed to trust the demo:
 - errors;
 - smoke-test result.
 
-Do not introduce the full reusable AgentOps control/observability plane in FAST DEMO.
+Do not introduce the full AgentOps control/observability plane in FAST DEMO.
 
 ## Explicitly not selected
 
@@ -82,17 +106,17 @@ Do not introduce the full reusable AgentOps control/observability plane in FAST 
 - Human approval workflow
 - complex memory
 - code execution
+- client-specific enterprise integration
 
 These may be introduced only after a concrete requirement or measured limitation appears.
 
 ## Reuse from portafoliodatagob
 
-The following implementation knowledge is reusable as engineering evidence, not as mandatory copied code:
+Reusable engineering knowledge, not mandatory copied code:
 
 1. **ADK runtime structure**
    - Google ADK Agent on Gemini.
    - Explicit instructions and bounded tools.
-   - Agent-visible vs specialist/tool separation.
 
 2. **RAG-lite design**
    - Stable retrieval service returning ranked chunks, scores and excerpts.
@@ -104,15 +128,15 @@ The following implementation knowledge is reusable as engineering evidence, not 
    - agents recommend/explain while humans decide.
 
 4. **Demo readiness**
-   - synthetic/curated demo data should be versioned, not hardcoded into application logic;
-   - demo state should be repeatable;
-   - demo behavior should be independently testable.
+   - synthetic/curated demo data is versioned, not hardcoded;
+   - demo state is repeatable;
+   - demo behavior is independently testable.
 
 5. **Smoke testing**
-   - non-destructive smoke by default;
+   - non-destructive by default;
    - health endpoint;
    - web reachability;
-   - API/web integration verification;
+   - React/FastAPI integration verification;
    - mutation checks opt-in only.
 
 6. **AgentOps principle for later maturity**
@@ -123,4 +147,4 @@ The following implementation knowledge is reusable as engineering evidence, not 
 
 ## Key decision
 
-> Reuse the proven engineering knowledge from ATLAS DataGob, but keep the Legal FAST DEMO simpler than ATLAS production-oriented patterns.
+> Reuse proven engineering knowledge from ATLAS DataGob while keeping the cross-industry Legal FAST DEMO intentionally smaller than production-oriented patterns.

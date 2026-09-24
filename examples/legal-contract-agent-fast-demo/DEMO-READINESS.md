@@ -1,39 +1,50 @@
-# Demo Readiness — Legal Contract Agent
+# Demo Readiness — Cross-Industry Legal Contract Intelligence
 
-## Reusable lesson from ATLAS DataGob
+## Principle
 
-A demo should be repeatable, stable and based on versioned curated data rather than hardcoded behavior.
+The demo must be repeatable, stable, client-agnostic and based on versioned curated/synthetic data rather than hardcoded behavior.
 
 ## Required demo assets
 
-- curated contract corpus;
+- cross-industry curated/synthetic contract corpus;
 - golden question set;
 - optional reset/reindex command;
-- health endpoint;
+- FastAPI health endpoint;
 - smoke test;
 - short demo script;
 - known limitations.
 
+Recommended corpus categories:
+- services agreement;
+- supplier agreement;
+- NDA/confidentiality;
+- technology agreement;
+- lease agreement;
+- consulting agreement.
+
 ## Recommended demo script
 
-1. Open the application.
-2. Ask a direct factual question.
-3. Inspect source evidence.
-4. Ask for a clause analysis.
-5. Compare the same clause across two contracts.
-6. Ask a question not supported by the corpus.
-7. Show the safe abstention.
-8. Optionally show the golden-set summary.
+1. Open the React application.
+2. Select or inspect available contracts.
+3. Ask a direct factual question.
+4. Inspect source evidence.
+5. Ask for a clause analysis.
+6. Compare the same clause across two contracts.
+7. Ask a question not supported by the corpus.
+8. Show the safe abstention.
+9. Optionally show the golden-set summary.
 
 ## Smoke checks
 
 Non-destructive by default:
 
-- API/runtime health is OK.
-- UI is reachable.
-- UI can call the agent runtime.
+- FastAPI /health is OK.
+- React UI is reachable.
+- React can call FastAPI.
+- FastAPI can invoke the agent runtime.
 - corpus/retrieval service is reachable.
 - one known grounded query succeeds.
 - no-evidence query returns a safe result.
+- no client-specific dependency is required for the primary flow.
 
-Any reindex/reset that mutates demo state should be explicit and opt-in.
+Any reindex/reset that mutates demo state must be explicit and opt-in.

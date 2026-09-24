@@ -1,17 +1,24 @@
-# FAST DEMO SPEC — Legal Contract Agent on GCP
+# FAST DEMO SPEC — Cross-Industry Legal Contract Intelligence on GCP
 
-Status: Draft for implementation  
+Status: Ready for FAST DEMO implementation  
 Maturity: FAST DEMO  
 Cloud: Google Cloud  
+Backend: FastAPI  
+Frontend: React  
 Pattern baseline: PA-SDD + GCP FAST DEMO
 
 ## 1. Business Intent
 
 ### Problem
-Legal users spend time reviewing contracts manually to answer focused questions about clauses, obligations, penalties, validity, confidentiality and differences across documents.
+Legal and contract-management users across industries spend significant time reviewing agreements manually to answer focused questions about clauses, obligations, penalties, validity, confidentiality and differences across documents.
 
 ### Desired Outcome
-Demonstrate that a legal user can ask natural-language questions over a controlled set of contracts and receive grounded, traceable answers supported by source evidence.
+Demonstrate a reusable cross-industry legal intelligence experience where a user can ask natural-language questions over a controlled contract corpus and receive grounded, traceable answers supported by source evidence.
+
+### Product Boundary
+This is a cross-industry demonstration product. It must not embed client-specific names, workflows, policies, SharePoint structures or proprietary business rules in the core.
+
+Future client implementations should extend the core through configuration, integrations and governed policies rather than forking core legal behavior.
 
 ### Success Metric
 For a curated demo set:
@@ -22,17 +29,21 @@ For a curated demo set:
 ## 2. Scope
 
 ### In Scope
-- Controlled corpus of digital PDF/DOCX contracts.
-- Text extraction and chunking.
+- Cross-industry curated/synthetic corpus of digital PDF/DOCX contracts.
+- Representative contract types such as services, supplier, NDA/confidentiality, technology, lease and consulting agreements.
+- Text extraction and contract-aware chunking.
 - Querying contracts in natural language.
 - Clause analysis.
 - Comparison of at least two contracts.
 - Source evidence in each grounded answer.
 - Explicit abstention when evidence is insufficient.
-- Functional UI deployed on GCP.
+- React web experience.
+- FastAPI backend/API.
+- Functional deployment on GCP.
 - Basic smoke validation.
 
 ### Out of Scope
+- Any client-specific integration or branding.
 - SharePoint integration.
 - OCR/scanned-document pipeline.
 - GraphRAG / knowledge graph.
@@ -48,7 +59,7 @@ For a curated demo set:
 
 ## 3. Actor / Persona
 
-### Legal Specialist
+### Legal / Contract Specialist
 Needs to locate, understand and compare contract content without knowing prompt syntax, cloud services or retrieval mechanics.
 
 ## 4. User Stories
@@ -75,22 +86,26 @@ So that I can verify the answer myself.
 
 ## 5. Functional Requirements
 
-- FR-FD-01: The system shall load a controlled set of digital contracts for the demo.
+- FR-FD-01: The system shall load a controlled cross-industry set of digital contracts for the demo.
 - FR-FD-02: The system shall extract and index contract text in a retrievable knowledge base.
-- FR-FD-03: The user shall be able to submit natural-language questions.
-- FR-FD-04: The agent shall retrieve relevant evidence before generating a grounded answer.
-- FR-FD-05: The agent shall support clause analysis and comparison across at least two contracts.
-- FR-FD-06: Each grounded answer shall expose the document source and supporting excerpt.
-- FR-FD-07: If sufficient evidence is not found, the agent shall explicitly abstain.
+- FR-FD-03: The React UI shall allow the user to submit natural-language questions.
+- FR-FD-04: FastAPI shall expose the API contract required by the React UI and agent runtime.
+- FR-FD-05: The agent shall retrieve relevant evidence before generating a grounded answer.
+- FR-FD-06: The agent shall support clause analysis and comparison across at least two contracts.
+- FR-FD-07: Each grounded answer shall expose the document source and supporting excerpt.
+- FR-FD-08: If sufficient evidence is not found, the agent shall explicitly abstain.
+- FR-FD-09: The UI shall expose the available demo documents and allow document-scoped analysis where applicable.
 
 ## 6. Non-Functional Requirements
 
 - NFR-FD-01 Grounding: factual legal claims in the answer must be supported by retrieved evidence.
 - NFR-FD-02 Traceability: grounded responses must identify source document and excerpt.
 - NFR-FD-03 Usability: the primary flow must not require technical syntax or knowledge of GCP.
-- NFR-FD-04 Security basics: credentials and secrets must not be exposed in source code or UI.
+- NFR-FD-04 Security basics: credentials and secrets must not be exposed in source code, React bundles or UI.
 - NFR-FD-05 Demo latency: standard queries should target <= 15 seconds under demo conditions.
 - NFR-FD-06 Minimalism: the UI must keep the primary legal task visually dominant.
+- NFR-FD-07 Portability: core legal behavior must remain client-agnostic.
+- NFR-FD-08 API clarity: React/FastAPI integration shall use explicit versioned request/response contracts for the demo.
 
 ## 7. Acceptance Criteria
 
@@ -127,8 +142,19 @@ Then the user can identify the source document and supporting excerpt.
 ### AC-006 — Visible system state
 Given a query is submitted  
 When processing is in progress  
-Then the UI exposes a visible loading state  
-And eventually exposes success, warning, or error.
+Then the React UI exposes a visible loading state  
+And eventually exposes success, warning, no-evidence or error.
+
+### AC-007 — Cross-industry core
+Given the demo is running  
+When a user uses any supported demo contract type  
+Then the core flow does not depend on a client-specific name, policy, repository or workflow.
+
+### AC-008 — API integration
+Given the React application is available  
+When it submits a supported request  
+Then it communicates with FastAPI through the defined API contract  
+And renders the returned answer/evidence without direct model access from the browser.
 
 ## 8. Business Rules
 
@@ -136,6 +162,8 @@ And eventually exposes success, warning, or error.
 - BR-FD-02: Missing evidence must be represented as uncertainty/abstention, not invention.
 - BR-FD-03: The agent assists legal analysis; it does not make autonomous legal decisions.
 - BR-FD-04: The FAST DEMO runtime is read-only with respect to business systems and source documents.
+- BR-FD-05: Client-specific behavior must not be hardcoded into the cross-industry core.
+- BR-FD-06: The browser must never call Gemini/Vertex AI directly; model access is mediated by the FastAPI/agent backend.
 
 ## 9. Logical Data Model
 
@@ -144,6 +172,7 @@ Document
  ├── document_id
  ├── name
  ├── document_type
+ ├── industry_context?   # demo metadata, not client logic
  └──< Chunk
        ├── chunk_id
        ├── content
@@ -151,7 +180,11 @@ Document
        └── metadata
 
 Query
+ ├── question
+ ├── document_filters?
  └── Response
+       ├── answer
+       ├── status
        └──< Evidence
              ├── document_id
              ├── chunk_id
@@ -160,11 +193,13 @@ Query
 
 ## 10. Integrations
 
-FAST DEMO has no enterprise integration dependency.
+FAST DEMO has no enterprise/client integration dependency.
 
-Primary runtime integrations:
-- Vertex AI / Gemini
-- local or lightweight vector/retrieval component used by the demo runtime
+Runtime boundaries:
+- React -> FastAPI
+- FastAPI -> Google ADK / agent runtime
+- agent runtime -> Vertex AI / Gemini
+- agent tools -> lightweight retrieval/knowledge component
 
 ## 11. Edge Cases
 
@@ -177,15 +212,18 @@ Primary runtime integrations:
 - Retrieval dependency failure.
 - Malformed document.
 - Comparison requested with fewer than two valid documents.
+- Backend unavailable.
+- API returns a controlled error.
+- Client-specific question unsupported by the generic corpus.
 
 ## 12. Agentic Extension
 
 ### Agent Contract
 
-Name: Legal Contract Agent
+Name: Legal Contract Intelligence Agent
 
 Objective:
-Answer contract questions using only evidence retrieved from the enabled demo corpus.
+Answer contract questions using only evidence retrieved from the enabled cross-industry demo corpus.
 
 May:
 - search contract content;
@@ -200,7 +238,8 @@ Must not:
 - approve/reject contracts;
 - make autonomous legal decisions;
 - use external internet/legal sources for the FAST DEMO;
-- execute writes to enterprise systems.
+- execute writes to enterprise systems;
+- assume client-specific policies that are not present in the corpus/configuration.
 
 ### Tool Contracts
 
@@ -228,8 +267,8 @@ Output:
 ### Knowledge / RAG
 - Digital PDF/DOCX only.
 - Extract text.
-- Chunk into contract-relevant segments.
-- Preserve document_id, document_name, chunk_id and section when available.
+- Prefer contract/section-aware chunks over arbitrary fixed-character splits.
+- Preserve document_id, document_name, document_type, chunk_id and section when available.
 - Retrieve top-k evidence before model response.
 - Always pass evidence into the answer-generation context.
 
@@ -248,7 +287,8 @@ Curated golden set of 20-30 questions covering:
 - direct lookup;
 - clause analysis;
 - comparison;
-- no-evidence / abstention.
+- no-evidence / abstention;
+- cross-industry contract types.
 
 ### Runtime Limits
 - no more than 2 retrieval/document tools;
@@ -259,12 +299,13 @@ Curated golden set of 20-30 questions covering:
 ## 13. Definition of Done
 
 The FAST DEMO is complete when a user can:
-1. open the deployed application;
-2. see the demo contract corpus;
+1. open the deployed React application;
+2. see the cross-industry demo contract corpus;
 3. ask a contract question;
-4. receive a grounded answer;
+4. receive a grounded answer through FastAPI + ADK/Gemini;
 5. inspect supporting evidence;
 6. analyze a clause;
 7. compare two contracts;
 8. ask an unsupported question and observe a safe abstention;
-9. pass the basic Cloud Run smoke test.
+9. pass the basic Cloud Run smoke test;
+10. demonstrate that no client-specific dependency exists in the core flow.
