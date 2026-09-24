@@ -113,3 +113,33 @@ PRODUCT   → secure, resilient, governed, scalable
 ```
 
 They are reviewed weekly under the same lifecycle and evidence policy as the parent profiles.
+
+
+## Cost-aware progression
+
+Component selection is constrained by economics as well as technical fit.
+
+DevPattern uses **Cost-Aware Component Selection** and an optional **Cost Envelope** so FAST DEMO does not inherit production-grade cost before the requirement exists.
+
+```text
+Workload
+  ↓
+Maturity
+  ↓
+Platform
+  ↓
+Cost Envelope
+  ↓
+Minimum viable component set
+  ↓
+Measure
+  ↓
+Escalate only when evidence requires it
+```
+
+See:
+- [Cost-Aware Component Selection](cost-aware-selection.md)
+- [Cost Envelope](cost-envelope.md)
+- [Cost-Aware Selector Schema](cost-aware-selector-schema.yaml)
+
+> Scale architecture with evidence, not anticipation.
