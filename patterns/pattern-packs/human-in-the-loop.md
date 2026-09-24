@@ -25,7 +25,7 @@ or
 Agent → Need More Information → Human/User → Resume
 ```
 
-## FAST
+## FAST DEMO
 - manual confirmation before sensitive action.
 
 ## MVP

@@ -68,7 +68,7 @@ packs:
 
 Each pack defines what is expected at:
 
-- **FAST** — minimum implementation to validate value.
+- **FAST DEMO** — minimum implementation to validate value.
 - **MVP** — repeatable, testable behavior.
 - **PRODUCT** — production-grade controls and evidence.
 

@@ -29,7 +29,7 @@ Use multiple agents only when specialization, context isolation, permission boun
 ```text
 Need to prove the idea quickly?
         ↓
-      FAST
+      FAST DEMO
 
 Need repeatable validation and measurable behavior?
         ↓

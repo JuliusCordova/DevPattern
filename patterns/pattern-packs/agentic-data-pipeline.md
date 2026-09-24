@@ -32,7 +32,7 @@ Data Quality / Reconciliation
 Evidence
 ```
 
-## FAST
+## FAST DEMO
 - one source/target;
 - synthetic or controlled data;
 - generated SQL/notebook;

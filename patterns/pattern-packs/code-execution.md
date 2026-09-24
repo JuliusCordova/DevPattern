@@ -32,7 +32,7 @@ Output / Files / Errors
 Agent validates result
 ```
 
-## FAST
+## FAST DEMO
 - managed sandbox;
 - synthetic files/data;
 - strict execution limits.

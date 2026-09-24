@@ -31,7 +31,7 @@ Architecture-Driven does **not** mean designing a large architecture before codi
 IDEA
  │
  ▼
-FAST
+FAST DEMO
  │  mini spec
  │  simple feature slice
  │  happy path
@@ -107,7 +107,7 @@ Promotion decisions rely on machine-generated evidence wherever possible.
 Recommended progression:
 
 ```text
-FAST     → Simple Feature Slice
+FAST DEMO     → Simple Feature Slice
 MVP      → Simple Slice or Hexagonal Slice where justified
 PRODUCT  → Hexagonal Slice preferred for critical capabilities
 ```

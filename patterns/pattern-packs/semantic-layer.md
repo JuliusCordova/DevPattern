@@ -34,7 +34,7 @@ Metrics + Entities + Business Definitions
 NL-to-SQL / BI / Agents
 ```
 
-## FAST
+## FAST DEMO
 - glossary + curated views may be enough.
 
 ## MVP

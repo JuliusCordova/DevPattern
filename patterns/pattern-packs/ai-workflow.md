@@ -33,7 +33,7 @@ Optional Approval
 Output
 ```
 
-## FAST
+## FAST DEMO
 - one happy-path workflow;
 - basic validation;
 - smoke test.

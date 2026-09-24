@@ -2,7 +2,7 @@
 
 PA-SDD increases engineering rigor progressively.
 
-| Dimension | FAST | MVP | PRODUCT |
+| Dimension | FAST DEMO | MVP | PRODUCT |
 |---|---|---|---|
 | Goal | Validate idea | Validate product | Operate safely |
 | Spec | Mini Spec | Full feature spec | Governed living spec |
@@ -22,4 +22,4 @@ It moves because **risk, maturity, integrations, users, or operational expectati
 
 ## Anti-overengineering principle
 
-Do not import PRODUCT complexity into FAST unless a concrete risk justifies it.
+Do not import PRODUCT complexity into FAST DEMO unless a concrete risk justifies it.

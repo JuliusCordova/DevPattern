@@ -42,7 +42,7 @@ Narrative
 - separate query generation from narrative generation;
 - use a semantic layer where business metrics are non-trivial.
 
-## FAST
+## FAST DEMO
 - read-only sandbox dataset;
 - limited schema;
 - 10–20 benchmark questions.

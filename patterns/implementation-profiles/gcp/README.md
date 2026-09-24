@@ -60,7 +60,7 @@ This is explicit in PricingPrima and is also consistent with the Business Rules 
 
 ## Progressive use
 
-### FAST
+### FAST DEMO
 
 ```text
 ADK / simple Python agent

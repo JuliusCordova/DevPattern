@@ -26,7 +26,7 @@ Can a simple structure solve the problem clearly?
 
 ## Recommended patterns
 
-- **Simple Feature Slice** — preferred for FAST demos and small applications.
+- **Simple Feature Slice** — preferred for FAST DEMO demos and small applications.
 - **Hexagonal Slice Architecture** — preferred for MVP and PRODUCT workloads with meaningful domain logic, integrations, agent tools, vendor dependencies, or higher change/risk.
 
 Hexagonal Slice is a recommendation, not a universal requirement.

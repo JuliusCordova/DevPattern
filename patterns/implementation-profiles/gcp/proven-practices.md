@@ -165,7 +165,7 @@ At PRODUCT add:
 - budget thresholds;
 - outcome-to-cost traceability.
 
-## 9. Synthetic data for FAST/MVP demos
+## 9. Synthetic data for FAST DEMO/MVP demos
 
 ATLAS DataGob and PricingPrima both demonstrate the value of:
 - curated synthetic datasets;

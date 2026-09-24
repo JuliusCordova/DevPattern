@@ -25,7 +25,7 @@ Wait / Resume / Retry
 Artifact / Result
 ```
 
-## FAST
+## FAST DEMO
 - avoid durable orchestration if a normal request is sufficient.
 
 ## MVP

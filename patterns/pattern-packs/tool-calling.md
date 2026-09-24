@@ -36,7 +36,7 @@ tool:
 - isolate vendor SDKs behind adapters;
 - log tool invocation and outcome.
 
-## FAST
+## FAST DEMO
 - direct function tools;
 - schema validation;
 - smoke tests.

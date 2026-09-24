@@ -43,7 +43,7 @@ Cited Answer
 - support metadata filtering;
 - require source attribution for grounded answers.
 
-## FAST
+## FAST DEMO
 - small corpus;
 - managed vector store allowed;
 - basic semantic retrieval;

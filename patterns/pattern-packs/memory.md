@@ -22,7 +22,7 @@ Persist information across turns or sessions when prior context materially impro
 
 Stateless behavior is sufficient.
 
-## FAST
+## FAST DEMO
 - in-session context only.
 
 ## MVP
