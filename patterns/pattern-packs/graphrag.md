@@ -44,7 +44,7 @@ Query Router
 Grounded Synthesis
 ```
 
-## FAST
+## FAST DEMO
 - GraphRAG only for a clearly relational demo;
 - subset corpus;
 - a few local/global benchmark questions.
