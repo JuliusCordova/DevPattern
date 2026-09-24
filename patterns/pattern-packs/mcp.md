@@ -34,7 +34,7 @@ MCP Server
 Enterprise Systems
 ```
 
-## FAST
+## FAST DEMO
 - direct tools preferred;
 - introduce MCP only for a real reuse/integration need.
 
