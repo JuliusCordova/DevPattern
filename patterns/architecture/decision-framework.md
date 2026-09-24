@@ -6,7 +6,7 @@ PA-SDD uses progressive architecture selection.
 
 Use **Simple Feature Slice** when most of these are true:
 
-- FAST demo or discovery;
+- FAST DEMO demo or discovery;
 - limited business logic;
 - one implementation of each dependency;
 - few external integrations;
@@ -33,7 +33,7 @@ Prefer **Hexagonal Slice Architecture** when one or more of these become materia
 The transition is not:
 
 ```text
-FAST → MVP → PRODUCT
+FAST DEMO → MVP → PRODUCT
   = more folders automatically
 ```
 
@@ -54,7 +54,7 @@ Justified architectural boundaries
 ## Suggested default
 
 ```text
-FAST
+FAST DEMO
   ↓
 Simple Feature Slice
 
