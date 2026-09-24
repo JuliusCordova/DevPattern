@@ -31,17 +31,30 @@ Select reusable patterns such as:
 - Multi-Agent
 - Governed Agent
 
-## Stage 3 — Architecture and Contracts
+## Stage 3 — Architecture Decision
+
+Choose the **simplest structure that protects the next stage of delivery**.
+
+Typical progression:
+
+```text
+FAST     → Simple Feature Slice
+MVP      → Simple Slice or Hexagonal Slice where justified
+PRODUCT  → Hexagonal Slice preferred for critical capabilities
+```
+
+Do not introduce ports, adapters, interfaces, or extra layers automatically. Add them when they materially improve testability, isolate volatile dependencies, protect business logic, enforce security boundaries, or reduce future change cost.
+
+## Stage 4 — Contracts
 
 Added progressively when needed:
-- architecture decisions
 - agent contract
 - tool contracts
 - data contracts
 - permission model
 - external integration contracts
 
-## Stage 4 — Evals
+## Stage 5 — Evals
 
 Define expected behavior before trusting the implementation:
 - happy-path cases
@@ -51,11 +64,11 @@ Define expected behavior before trusting the implementation:
 - groundedness or correctness criteria
 - business-level acceptance
 
-## Stage 5 — Build
+## Stage 6 — Build
 
-Implementation should remain traceable to the spec and selected patterns.
+Implementation should remain traceable to the spec, selected patterns, and chosen architecture.
 
-## Stage 6 — Evidence
+## Stage 7 — Evidence
 
 Collect:
 - unit tests
@@ -65,7 +78,7 @@ Collect:
 - smoke tests
 - latency and cost data where relevant
 
-## Stage 7 — Promotion
+## Stage 8 — Promotion
 
 Promotion is proportional to maturity:
 
@@ -75,7 +88,7 @@ MVP      → Evidence gate
 PRODUCT  → Production promotion gate
 ```
 
-## Stage 8 — Observe
+## Stage 9 — Observe
 
 Measure:
 - business outcome
@@ -86,16 +99,16 @@ Measure:
 - latency
 - cost per successful outcome
 
-## Stage 9 — Evolve
+## Stage 10 — Evolve
 
-Important findings update the specification, patterns, tests, and evals.
+Important findings update the specification, patterns, architecture, tests, and evals.
 
 ```text
 Failure
   ↓
 Root cause
   ↓
-Spec / Pattern update
+Spec / Pattern / Architecture update
   ↓
 New test or eval
   ↓
