@@ -18,9 +18,12 @@ PA-SDD resolves the tension by separating **engineering rigor from documentation
 PA-SDD =
   Spec-Driven
 + Pattern-Driven
++ Architecture-Driven
 + Eval-Driven
 + Evidence-Driven
 ```
+
+Architecture-Driven does **not** mean designing a large architecture before coding. It means reusing proven architectural patterns and introducing boundaries only when they protect delivery speed, testability, integrations, security, or future change.
 
 ## Progressive lifecycle
 
@@ -30,17 +33,19 @@ IDEA
  ▼
 FAST
  │  mini spec
+ │  simple feature slice
  │  happy path
  │  acceptance
  │  smoke
  ▼
 MVP
- │  architecture
+ │  architecture where justified
  │  contracts
  │  golden evals
  │  automated evidence
  ▼
 PRODUCT
+    stronger boundaries
     security
     NFR
     observability
@@ -61,7 +66,9 @@ Minimum Sufficient Spec
       ↓
 Pattern Selection
       ↓
-Architecture + Contracts + Evals
+Architecture Decision
+      ↓
+Contracts + Evals
       ↓
 Implementation
       ↓
@@ -76,7 +83,7 @@ Learn
 Evolve Spec
 ```
 
-## Four foundations
+## Five foundations
 
 ### Spec-Driven
 The specification captures desired behavior before implementation details.
@@ -84,11 +91,30 @@ The specification captures desired behavior before implementation details.
 ### Pattern-Driven
 Reusable patterns encode engineering decisions that should not be rediscovered in every project.
 
+### Architecture-Driven
+Architecture is selected progressively. PA-SDD prefers simple feature slices first and introduces Hexagonal Slice boundaries only where they create concrete value.
+
 ### Eval-Driven
 Agent behavior is validated against representative scenarios, tools, traces, guardrails, and business expectations.
 
 ### Evidence-Driven
 Promotion decisions rely on machine-generated evidence wherever possible.
+
+## Architecture principle
+
+> **Start simple. Add boundaries only when they protect something valuable.**
+
+Recommended progression:
+
+```text
+FAST     → Simple Feature Slice
+MVP      → Simple Slice or Hexagonal Slice where justified
+PRODUCT  → Hexagonal Slice preferred for critical capabilities
+```
+
+Hexagonal + Vertical Slice is a preferred pattern for products with meaningful domain logic, multiple integrations, tool-calling agents, vendor dependencies, or higher operational risk. It is not mandatory for every feature.
+
+See [Architecture Patterns](../architecture/README.md).
 
 ## Core principle
 
