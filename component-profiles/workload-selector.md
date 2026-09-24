@@ -29,12 +29,16 @@ What platform?
    ↓
 Azure / GCP / AWS / Fabric
    ↓
+What cost envelope applies?
+   ↓
 Select minimum component mapping
+   ↓
+Validate escalation triggers
 ```
 
 ## Core rule
 
-> Do not select every available managed service. Select the minimum set that satisfies the current stage.
+> Do not select every available managed service. Select the minimum set that satisfies the current stage and cost envelope.
 
 ## Escalation triggers
 
@@ -73,3 +77,22 @@ components:
   secrets: secret-manager
   observability: cloud-logging-monitoring
 ```
+
+
+## Cost-aware selection
+
+The selector must consider expected usage, traffic pattern, availability window, data volume, growth uncertainty, target monthly cost, hard monthly cost limit, scale-to-zero suitability, consumption pricing, and migration path.
+
+When the selected architecture is likely to exceed the cost envelope, return three alternatives:
+
+- **LEAN** — lower-cost viable architecture.
+- **BALANCED** — recommended architecture for current maturity.
+- **SCALE** — higher resilience/scale architecture.
+
+Each option should explain what the additional cost buys.
+
+See [Cost-Aware Component Selection](cost-aware-selection.md) and [Cost Envelope](cost-envelope.md).
+
+## Key principle
+
+> Scale architecture with evidence, not anticipation.
