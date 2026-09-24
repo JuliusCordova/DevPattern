@@ -27,7 +27,7 @@ Tool / Domain Action
 Outcome Event + Evidence
 ```
 
-## FAST
+## FAST DEMO
 - one topic/event;
 - one consumer;
 - synthetic events;
