@@ -92,3 +92,24 @@ Cloud services evolve continuously.
 Component Architecture Profiles are therefore **living artifacts** and must be reviewed weekly.
 
 See [Weekly Review Policy](weekly-review-policy.md).
+
+
+## Workload mappings
+
+The first concrete component mappings are available here:
+
+- [Workload Selector](workload-selector.md)
+- [Azure Workload Mappings](azure/workload-mappings.md)
+- [GCP Workload Mappings](gcp/workload-mappings.md)
+- [AWS Workload Mappings](aws/workload-mappings.md)
+- [Microsoft Fabric Workload Mappings](fabric/workload-mappings.md)
+
+These mappings are intentionally progressive:
+
+```text
+FAST DEMO → minimum viable managed components
+MVP       → repeatable, observable, testable
+PRODUCT   → secure, resilient, governed, scalable
+```
+
+They are reviewed weekly under the same lifecycle and evidence policy as the parent profiles.
