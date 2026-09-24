@@ -35,7 +35,7 @@ agent:
   evals:
 ```
 
-## FAST
+## FAST DEMO
 - one agent;
 - minimal tools;
 - bounded run;
