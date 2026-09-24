@@ -44,7 +44,7 @@ Persist only useful state
 - summarize long histories;
 - treat context size, latency and cost as architecture metrics.
 
-## FAST
+## FAST DEMO
 - concise instructions;
 - no unnecessary memory;
 - manual context.
