@@ -22,7 +22,7 @@ Traditional SDD can become too heavy for demos and early experimentation. PA-SDD
 IDEA
  │
  ▼
-FAST
+FAST DEMO
  │   Minimum sufficient specification
  │   Simple feature slice
  │   Working demo + smoke validation
@@ -78,7 +78,7 @@ See [Architecture Patterns](patterns/architecture/README.md).
 
 | Mode | Goal | Required discipline |
 |---|---|---|
-| **FAST** | Demo, discovery, PoC | Mini Spec + simple slice + acceptance + smoke |
+| **FAST DEMO** | Demo, discovery, PoC | Mini Spec + simple slice + acceptance + smoke |
 | **MVP** | Validatable product | Spec + justified architecture + contracts + golden evals + evidence |
 | **PRODUCT** | Production workload | Stronger boundaries + full risk controls + security + NFR + observability + promotion gates |
 
