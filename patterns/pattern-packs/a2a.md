@@ -31,7 +31,7 @@ Remote Agent
 Task / Artifact / Status
 ```
 
-## FAST
+## FAST DEMO
 - do not introduce A2A unless interoperability is the demo itself.
 
 ## MVP
