@@ -38,7 +38,7 @@ Choose the **simplest structure that protects the next stage of delivery**.
 Typical progression:
 
 ```text
-FAST     → Simple Feature Slice
+FAST DEMO     → Simple Feature Slice
 MVP      → Simple Slice or Hexagonal Slice where justified
 PRODUCT  → Hexagonal Slice preferred for critical capabilities
 ```
@@ -83,7 +83,7 @@ Collect:
 Promotion is proportional to maturity:
 
 ```text
-FAST     → Demo acceptance
+FAST DEMO     → Demo acceptance
 MVP      → Evidence gate
 PRODUCT  → Production promotion gate
 ```
