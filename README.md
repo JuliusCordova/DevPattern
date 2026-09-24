@@ -6,10 +6,11 @@ Its first pattern is **PA-SDD — Progressive Agentic Spec-Driven Development**.
 
 > **Minimum ceremony. Maximum evidence.**
 
-PA-SDD combines four complementary ideas:
+PA-SDD combines five complementary ideas:
 
 - **Spec-Driven** — build from explicit intent and acceptance criteria.
 - **Pattern-Driven** — reuse proven engineering and agentic patterns instead of redefining them in every project.
+- **Architecture-Driven** — select the simplest viable architecture and add boundaries only when they create concrete value.
 - **Eval-Driven** — define how agent behavior will be evaluated before relying on it.
 - **Evidence-Driven** — promote software based on executable evidence, not documentation alone.
 
@@ -23,13 +24,16 @@ IDEA
  ▼
 FAST
  │   Minimum sufficient specification
+ │   Simple feature slice
  │   Working demo + smoke validation
  ▼
 MVP
- │   Architecture + contracts + golden evals
+ │   Architecture where justified
+ │   Contracts + golden evals
  │   Automated evidence
  ▼
 PRODUCT
+     Stronger architecture boundaries
      Security + NFR + observability
      Promotion gates + rollback + operations
 ```
@@ -45,7 +49,9 @@ Minimum Sufficient Spec
       ↓
 Reusable Patterns
       ↓
-Architecture / Contracts / Evals
+Architecture Decision
+      ↓
+Contracts / Evals
       ↓
 Implementation
       ↓
@@ -58,13 +64,23 @@ Observe
 Evolve the Spec
 ```
 
+## Architecture approach
+
+DevPattern prefers **simple feature slices first**.
+
+When domain complexity, integrations, vendor dependencies, testability, security, or operational risk justify stronger boundaries, the preferred pattern is **Hexagonal Slice Architecture**: Vertical Slice + Ports & Adapters.
+
+> Architecture grows when it protects delivery speed, testability, integration boundaries, security, or change — not because a diagram looks cleaner.
+
+See [Architecture Patterns](patterns/architecture/README.md).
+
 ## Development modes
 
 | Mode | Goal | Required discipline |
 |---|---|---|
-| **FAST** | Demo, discovery, PoC | Mini Spec + acceptance + smoke |
-| **MVP** | Validatable product | Spec + architecture + contracts + golden evals + evidence |
-| **PRODUCT** | Production workload | Full risk controls + security + NFR + observability + promotion gates |
+| **FAST** | Demo, discovery, PoC | Mini Spec + simple slice + acceptance + smoke |
+| **MVP** | Validatable product | Spec + justified architecture + contracts + golden evals + evidence |
+| **PRODUCT** | Production workload | Stronger boundaries + full risk controls + security + NFR + observability + promotion gates |
 
 See [PA-SDD](patterns/progressive-agentic-sdd/README.md) for the complete pattern.
 
@@ -74,7 +90,9 @@ See [PA-SDD](patterns/progressive-agentic-sdd/README.md) for the complete patter
 DevPattern/
 ├── constitution/
 ├── patterns/
-│   └── progressive-agentic-sdd/
+│   ├── progressive-agentic-sdd/
+│   └── architecture/
+│       └── hexagonal-slice/
 ├── templates/
 │   ├── fast/
 │   ├── mvp/
@@ -84,7 +102,7 @@ DevPattern/
 
 ## Guiding principle
 
-> The artifact exists only if it reduces ambiguity, risk, rework, or operational uncertainty.
+> The artifact or abstraction exists only if it reduces ambiguity, risk, rework, operational uncertainty, or future change cost.
 
 PA-SDD is intentionally framework-neutral. It can be implemented using Google ADK, Microsoft Agent Framework, OpenAI Agents SDK, LangGraph, custom runtimes, or conventional application stacks.
 
@@ -92,4 +110,4 @@ PA-SDD is intentionally framework-neutral. It can be implemented using Google AD
 
 **v0.1 — Foundation**
 
-This version defines the core philosophy, lifecycle, maturity model, minimum templates, and agent/tool contracts.
+This version defines the core philosophy, lifecycle, progressive architecture approach, and the initial Hexagonal Slice pattern.
