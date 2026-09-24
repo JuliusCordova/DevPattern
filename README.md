@@ -53,6 +53,8 @@ Architecture Decision
       ↓
 Contracts / Evals
       ↓
+Component Architecture Profile
+      ↓
 Implementation
       ↓
 Executable Evidence
@@ -74,6 +76,46 @@ When domain complexity, integrations, vendor dependencies, testability, security
 
 See [Architecture Patterns](patterns/architecture/README.md).
 
+## Component Architecture Profiles
+
+Architecture patterns and Pattern Packs remain vendor-neutral.
+
+**Component Architecture Profiles** map those patterns into current managed services for:
+
+- Azure
+- Microsoft Fabric
+- GCP
+- AWS
+
+```text
+Definition
+   ↓
+Architecture Pattern
+   ↓
+Pattern Packs
+   ↓
+Component Architecture Profile
+   ↓
+Implementation
+```
+
+Cloud recommendations are living artifacts and are reviewed **weekly** because managed services, agent runtimes, limits, pricing, integrations and reference architectures evolve continuously.
+
+A weekly review does not automatically change the baseline. Recommendations change only when there is evidence of material improvement.
+
+Lifecycle status:
+- CURRENT
+- REVIEW_REQUIRED
+- DEPRECATED
+- REPLACED
+
+Evidence level:
+- OFFICIAL
+- PROVEN
+- EXPERIMENTAL
+
+See [Component Architecture Profiles](component-profiles/README.md).
+
 ## Development modes
 
 | Mode | Goal | Required discipline |
@@ -91,23 +133,25 @@ DevPattern/
 ├── constitution/
 ├── patterns/
 │   ├── progressive-agentic-sdd/
-│   └── architecture/
-│       └── hexagonal-slice/
-├── templates/
-│   ├── fast/
-│   ├── mvp/
-│   └── product/
+│   ├── architecture/
+│   ├── pattern-packs/
+│   └── implementation-profiles/
+├── component-profiles/
+│   ├── azure/
+│   ├── fabric/
+│   ├── gcp/
+│   └── aws/
 └── schemas/
 ```
 
 ## Guiding principle
 
-> The artifact or abstraction exists only if it reduces ambiguity, risk, rework, operational uncertainty, or future change cost.
+> The artifact, abstraction, or managed component exists only if it reduces ambiguity, risk, rework, operational uncertainty, or future change cost.
 
-PA-SDD is intentionally framework-neutral. It can be implemented using Google ADK, Microsoft Agent Framework, OpenAI Agents SDK, LangGraph, custom runtimes, or conventional application stacks.
+PA-SDD is intentionally framework-neutral and cloud-neutral at the pattern level.
 
 ## Status
 
-**v0.1 — Foundation**
+**v0.3 — Component Architecture Profiles**
 
-This version defines the core philosophy, lifecycle, progressive architecture approach, and the initial Hexagonal Slice pattern.
+This version adds governed, weekly-reviewed cloud component mappings while preserving the principle of progressive architecture from FAST DEMO to PRODUCT.

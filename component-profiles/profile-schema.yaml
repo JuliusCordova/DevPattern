@@ -1,0 +1,45 @@
+profile:
+  id: gcp-agentic-app
+  platform: gcp
+  workload: agentic-app
+
+version: "2026.09.24"
+
+review:
+  cadence: weekly
+  last_reviewed: "2026-09-24"
+  next_review: "2026-10-01"
+
+lifecycle_status: CURRENT
+
+sources:
+  official: []
+  reference_architectures: []
+  proven_projects: []
+
+recommendations:
+  fast_demo: []
+  mvp: []
+  product: []
+
+components:
+  - capability: runtime
+    component: example_component
+    lifecycle_status: CURRENT
+    evidence_level: OFFICIAL
+    rationale: ""
+    alternatives: []
+    triggers_to_escalate: []
+
+change_control:
+  automatic_upgrade: false
+  requires_material_improvement: true
+  dimensions:
+    - simplicity
+    - security
+    - cost
+    - delivery_speed
+    - scalability
+    - resilience
+    - observability
+    - interoperability
