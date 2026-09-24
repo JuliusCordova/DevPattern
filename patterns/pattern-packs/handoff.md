@@ -28,7 +28,7 @@ Agent A
      User
 ```
 
-## FAST
+## FAST DEMO
 - explicit handoff conditions;
 - 2 agents maximum where practical.
 
