@@ -26,7 +26,7 @@ Production Trace → Detect Failure → Review → New Eval → Regression
 - task/business outcome;
 - agent/version/prompt/model identifiers.
 
-## FAST
+## FAST DEMO
 - 5–10 critical scenarios;
 - manual trace inspection;
 - smoke metrics.
