@@ -26,7 +26,7 @@ Synthesis
 
 Specialists should expose narrow contracts and may be called as tools.
 
-## FAST
+## FAST DEMO
 - at most 2–3 specialists;
 - obvious routing;
 - no unnecessary nesting.
