@@ -47,6 +47,8 @@ Business Intent
       ↓
 Minimum Sufficient Spec
       ↓
+UI / UX Pattern Selection
+      ↓
 Reusable Patterns
       ↓
 Architecture Decision
@@ -131,6 +133,8 @@ See [PA-SDD](patterns/progressive-agentic-sdd/README.md) for the complete patter
 ```text
 DevPattern/
 ├── constitution/
+├── definition-packs/
+├── ui-patterns/
 ├── patterns/
 │   ├── progressive-agentic-sdd/
 │   ├── architecture/
@@ -143,6 +147,53 @@ DevPattern/
 │   └── aws/
 └── schemas/
 ```
+
+## Definition Packs
+
+DevPattern uses **Definition Packs** to establish the minimum product definition before architecture and implementation.
+
+The default is the [Minimum Sufficient Specification](definition-packs/minimum-sufficient-specification.md), which progressively covers business intent, scope, user stories, FR/NFR, acceptance criteria, business rules, logical data model, integrations, edge cases, success metrics, and agentic extensions when relevant.
+
+```text
+IDEA
+  ↓
+Minimum Sufficient Specification
+  ↓
+Pattern Selector
+```
+
+## UI / UX Pattern Packs
+
+DevPattern also includes reusable [UI / UX Pattern Packs](ui-patterns/README.md).
+
+Nielsen's usability heuristics are used as a baseline quality gate and are complemented by patterns for:
+
+- accessibility;
+- cognitive load;
+- forms;
+- feedback states;
+- approvals;
+- agentic UI;
+- citations;
+- tool progress;
+- human approval;
+- uncertainty;
+- handoffs;
+- executive interfaces.
+
+```text
+Product Definition
+      ↓
+UI Pattern Selection
+      ↓
+Usable FAST DEMO
+      ↓
+MVP consistency + accessibility
+      ↓
+PRODUCT design system only when justified
+```
+
+> A FAST DEMO may be visually simple, but it must not be confusing.
 
 ## Guiding principle
 
