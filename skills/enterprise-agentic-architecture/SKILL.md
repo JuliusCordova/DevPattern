@@ -208,4 +208,18 @@ When using this skill:
 7. Never add multi-agent, GraphRAG, A2A, MCP or heavy governance without a stated reason.
 8. End with the evidence/gates required for the next maturity level.
 
-See `references/architecture-blueprint.md` and `references/agent-contract-template.md`.
+## Databricks-derived execution patterns
+
+For Master orchestration, PROXI runtime control and Agentic Economics, apply the reusable conclusions in `references/databricks-derived-patterns.md`:
+
+- evidence-based capability selection;
+- independent judge + deterministic gates;
+- Monotonic Trust Guard against silent regression;
+- capability health demotion/quarantine/recovery;
+- durable artifact handoffs instead of hidden chat state;
+- Agentic Currency using **Trusted Outcome Credit** as the normalized cost of a successful, trusted outcome;
+- controlled self-improvement through eval → gate → canary → promote/revert.
+
+These are DevPattern generalizations inspired by the Databricks Vibe Data Modeling implementation; do not attribute the DevPattern terminology itself to Databricks.
+
+See `references/architecture-blueprint.md`, `references/agent-contract-template.md` and `references/databricks-derived-patterns.md`.
