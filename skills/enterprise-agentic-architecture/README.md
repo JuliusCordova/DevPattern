@@ -24,6 +24,7 @@ This skill extends PA-SDD with:
 - [SKILL.md](SKILL.md) — complete usage instructions.
 - [Architecture Blueprint](references/architecture-blueprint.md) — progressive and production architecture.
 - [Agent Contract Template](references/agent-contract-template.md) — reusable contract schema.
+- [Databricks-derived Patterns](references/databricks-derived-patterns.md) — patterns extracted for Master orchestration, PROXI and Agentic Currency/Economics.
 
 ## Attribution
 
