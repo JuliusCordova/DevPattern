@@ -57,3 +57,7 @@ Audit Evidence
 ## Key rule
 
 Permission enforcement belongs in deterministic controls and data/tool layers, not only in prompts.
+
+## Economic authority
+
+For paid actions, compose [Governed Agent Payments](governed-agent-payments.md): enforce provider, purpose and aggregate budget restrictions outside the LLM. Payment never bypasses data authorization.

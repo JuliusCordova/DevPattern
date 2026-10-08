@@ -232,3 +232,7 @@ PA-SDD is intentionally framework-neutral and cloud-neutral at the pattern level
 **v0.3 — Component Architecture Profiles**
 
 This version adds governed, weekly-reviewed cloud component mappings while preserving the principle of progressive architecture from FAST DEMO to PRODUCT.
+
+## Governed Agent Economics
+
+[Governed Agent Payments](patterns/pattern-packs/governed-agent-payments.md) defines delegated budgets, deterministic authorization and reconciliation. [Economics / PROXI / MPP](patterns/pattern-packs/agentic-economics-proxi-mpp.md) explains placement. Documentation baseline; payment implementation remains proposed.

@@ -48,3 +48,7 @@ Specialists should expose narrow contracts and may be called as tools.
 ## Key rule
 
 Multi-agent is justified by separation needs, not by novelty.
+
+## Delegated spending
+
+When specialists purchase capabilities, compose [Governed Agent Payments](governed-agent-payments.md). Descendants share ancestor limits; reserve concurrently in a transactional ledger and correlate each purchase with its task and parent.

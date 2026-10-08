@@ -117,3 +117,10 @@ The GCP profile is based both on current Google Cloud guidance and on implementa
 ## References
 
 See [Authoritative References](references.md).
+
+## Agentic economics and payments
+
+- [Governed Agent Payments](governed-agent-payments.md) — delegated budgets and payment authorization for external capabilities.
+- [Economics, PROXI and MPP](agentic-economics-proxi-mpp.md) — conceptual and runtime placement.
+
+Compose only when economic commitments are required. Internal metering does not require MPP.
