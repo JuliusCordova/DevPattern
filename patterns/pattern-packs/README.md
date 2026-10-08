@@ -124,3 +124,7 @@ See [Authoritative References](references.md).
 - [Economics, PROXI and MPP](agentic-economics-proxi-mpp.md) — conceptual and runtime placement.
 
 Compose only when economic commitments are required. Internal metering does not require MPP.
+
+## Governed platform composition
+
+[Governed Agentic Platform](governed-agentic-platform.md) connects seven logical planes, Master/PROXI responsibilities, Agent Contracts, N0–N4 versus A0–A4, proportional gates and outcome economics. Proposed composition, not mandatory deployment layers or implemented runtime.
