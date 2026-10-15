@@ -171,6 +171,8 @@ DevPattern/
 │   ├── fabric/
 │   ├── gcp/
 │   └── aws/
+├── skills/
+│   └── enterprise-agentic-architecture/
 └── schemas/
 ```
 
@@ -220,6 +222,22 @@ PRODUCT design system only when justified
 ```
 
 > A FAST DEMO may be visually simple, but it must not be confusing.
+
+## Enterprise Agentic Architecture Skill
+
+DevPattern now includes an [Enterprise Agentic Architecture Skill](skills/enterprise-agentic-architecture/README.md) that extends PA-SDD from engineering delivery into enterprise agent industrialization.
+
+It covers:
+
+- Explore / Govern / Industrialize maturity;
+- seven logical planes;
+- PROXI Decision & Control;
+- Agentic TOM and Agent Contracts;
+- AI TRiSM, AgentOps and Agentic Economics;
+- MCP, A2A and OpenTelemetry;
+- Capability, Knowledge and Model Routing;
+- Agent Factory gates G0–G5;
+- multi-platform portability.
 
 ## Guiding principle
 
