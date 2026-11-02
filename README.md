@@ -236,3 +236,12 @@ This version adds governed, weekly-reviewed cloud component mappings while prese
 ## Governed Agent Economics
 
 [Governed Agent Payments](patterns/pattern-packs/governed-agent-payments.md) defines delegated budgets, deterministic authorization and reconciliation. [Economics / PROXI / MPP](patterns/pattern-packs/agentic-economics-proxi-mpp.md) explains placement. Documentation baseline; payment implementation remains proposed.
+
+
+## Assisted Agentic SDLC (deployable PA-SDD)
+
+- [Assisted Agentic SDLC — reusable development pattern](patterns/assisted-agentic-sdlc/README.md)
+- [Agent Contract template](patterns/assisted-agentic-sdlc/agent-contract-template.yaml)
+- [Release evidence template](patterns/assisted-agentic-sdlc/evidence-template.md)
+
+Separates build-time development assistants from optional product runtime agents. Requires explicit evidence, human review and reproducible CI/deployment gates. Reference implementation in [SmartRoute_AI](https://github.com/JuliusCordova/SmartRoute_AI).
