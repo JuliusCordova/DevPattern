@@ -1,0 +1,22 @@
+schema_version: "1.0"
+agent_id: example-sdlc-qa
+owner: replace-with-human-owner
+purpose: "Review changes and produce reproducible quality evidence"
+lifecycle: design
+autonomy: A1
+permissions:
+  repository: read
+  cloud: none
+  write_allowed: false
+  merge_allowed: false
+  deploy_allowed: false
+allowed_tools: ["read_specs", "read_diff", "run_local_tests"]
+prohibited_actions: ["approve_own_changes", "exfiltrate_secrets", "modify_production"]
+input_contract: {type: "spec_and_diff", requires_traceability: true}
+output_contract: {type: "review_report", must_include: ["requirements", "tests", "findings", "evidence_paths"]}
+controls:
+  require_human_approval_for: ["merge", "deployment", "credential_change", "cost_change"]
+  no_sensitive_data_in_prompts: true
+evaluations: ["golden_quality_cases", "unauthorized_tool_denials"]
+observability: {correlation_id_required: true, log_secrets: false}
+budget: {currency: USD, max_per_run: 0}
